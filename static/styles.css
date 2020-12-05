@@ -1,0 +1,22 @@
+.primary {
+    background-color: #74A57F;
+}
+
+.btn-primary {
+    background-color: #3498db !important;
+    color: black !important;
+}
+
+.nav-link {
+    color: black !important;
+}
+
+.container-fluid {
+    background: url(You.png) no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+body {
+    overflow-y: hidden;
+}
