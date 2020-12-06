@@ -7,6 +7,11 @@
     color: black !important;
 }
 
+.btn-secondary {
+    background-color: #a5a1a2 !important;
+    color: black !important;
+}
+
 .nav-link {
     color: black !important;
 }

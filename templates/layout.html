@@ -23,8 +23,8 @@
 
     <body>
         {% block nav %}{% endblock %}
-        <!--TODO: Make Nav bar if project expands -->
         <main class="container-fluid">
+            {% block modal %} {% endblock %}
             {% block main %}{% endblock %}
         </main>
 
