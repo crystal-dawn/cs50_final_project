@@ -21,21 +21,24 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
+
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+
 # Configure CS50 to use SQLite database
 db = SQL("sqlite:///youtine.db")
+
 
 # Identify which URL should trigger function it remote add origin https://github.com/crystal-dawn/cs50_final_project.git
 @app.route('/')
 # Function is given name, used to generate URLs for a particular function
 def login():
     # render the main page
-    return render_template("login.html")
+    return render_template("layout.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -43,7 +46,7 @@ def register():
     error = None
 
     if request.method == "GET":
-        return render_template("register.html", error = error)
+        return render_template("register.html", error=error)
 
     # User reached route via POST (as by submitting a form via POST)
     else:
@@ -58,6 +61,7 @@ def register():
             return redirect(url_for('register'))
 
         return render_template('register.html')
+
 
 # Validate username
 def validate_username():

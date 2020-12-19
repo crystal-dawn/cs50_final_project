@@ -3,42 +3,40 @@
 
 {% block main %}
 <!--Registration Form-->
-<form action="/register" method="post">
-  <div class="form-group row">
-    <label for="registerUsername" class="col-sm-4 col-form-label">Username</label>
-    <div class="col-sm-8">
+<form  class="registration-form d-flex flex-column" action="/register" method="post">
+  <h2>Join YouTine!</h2>
+  <div class="form-group flex-row">
+    <div class="col">
+      <label for="registerUsername" class="col-form-label">Username</label>
       <input id="registerUsername" class="form-control" autocomplete="off" autofocus name="registerUsername" placeholder="Username" type="text">
     </div>
-    <!--{% if username_error %}-->
-    <!--<div class="alert alert-warning" role="alert">-->
-    <!--  {{ username_error }}-->
-    <!--</div>-->
-    <!--{% endif %}-->
   </div>
-  <div class="form-group">
-    <label for="choosePassword" class="col-sm-4 col-form-label">Password</label>
-    <div class="col-sm-8">
+  <div class="form-group flex-row">
+    <div class="col">
+      <label for="choosePassword" class="col-form-label">Password</label>
       <input id="choosePassword" class="form-control" name="choosePassword" type="text" placeholder="Choose password">
     </div>
-    <label for="retypePassword" class="col-sm-4 col-form-label">Retype Password</label>
-    <div class="col-sm-8">
+  </div>
+  <div class="form-group flex-row">
+    <div class="col">
+      <label for="retypePassword" class="col-form-label">Retype Password</label>
       <input id="retypePassword" class="form-control" name="retypePassword" type="text" placeholder="Retype password">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Register</button>
+  <div class="col">
+    <button type="submit" class="btn btn-primary">Register</button>
+  </div>
 
-{% with errors = get_flashed_messages(category_filter=["error"]) %}
-{% if errors %}
+  {% with errors = get_flashed_messages(category_filter=["error"]) %}
+  {% if errors %}
   <div class="alert alert-warning">
-    <a class="close" href="#">x</a>
     <ul>
       {%- for msg in errors %}
       <li>{{ msg }}</li>
       {% endfor -%}
     </ul>
   </div>
-{% endif %}
-{% endwith %}
+  {% endif %}
+  {% endwith %}
 </form>
-
 {% endblock %}
