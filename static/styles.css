@@ -25,3 +25,11 @@
 body {
     overflow-y: hidden;
 }
+
+.hide {
+    display: none;
+}
+
+.block {
+    display: block;
+}
