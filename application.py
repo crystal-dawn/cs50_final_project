@@ -46,21 +46,18 @@ def register():
     error = None
 
     if request.method == "GET":
-        return render_template("register.html", error=error)
+        return render_template("register.html")
 
     # User reached route via POST (as by submitting a form via POST)
     else:
-        is_password_valid = validate_password()
-        is_username_valid = validate_username()
+        valid_username = validate_username()
+        valid_password = validate_password()
 
-        if is_username_valid:
-            flash(is_username_valid, 'error')
-        if is_password_valid:
-            flash(is_password_valid, 'error')
-        else:
-            return redirect(url_for('register'))
+        if valid_username and valid_password:
+            message = register_user(valid_username, valid_password)
 
-        return render_template('register.html')
+            flash('Registration succesesful, please login', 'message')
+            return redirect("/")
 
 
 # Validate username
@@ -71,20 +68,30 @@ def validate_username():
 
     # Username validation
     if not username or not username.strip():
-        return 'Name is missing'
+        flash('Name is missing', 'error')
     # Username already exists
     elif len(users):
-        return 'Username unavailable'
-
+        flash('Username unavailable', 'error')
+    else:
+        return username
 
 # Validate password
 def validate_password():
     password = request.form.get("choosePassword")
     password_confirmed = request.form.get("retypePassword") == password
 
-    app.logger.info("password: %s", password)
-    app.logger.info("confirmation: %s", password_confirmed)
-
     if not password:
-        return "Choose an eight character password"
-    return None
+        flash('Choose an eight character password', 'error')
+    elif not password_confirmed:
+        flash('Passwords much match', 'error')
+    else:
+        return password
+
+
+# Add user to database
+def register_user(valid_username, valid_password):
+    hash = generate_password_hash(valid_password)
+
+    db.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)", username=valid_username, hash=hash)
+
+    return 'Registration successful, please login'
