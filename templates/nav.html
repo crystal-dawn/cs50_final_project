@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light primary">
+  <!--Hamburger menu for mobile & tablet-->
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#layoutNavContent"
+          aria-controls="layoutNavContent"
+          aria-expanded="false"
+          aria-label="Toggle layout navigation"
+          >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--Wrap nav to collapse on small screens-->
+  <nav class="collapse navbar-collapse nav-justified" id="layoutNavContent">
+    <!--List items to form dropdown-->
+    <ul class="nav navbar-nav mr-auto">
+        <!--TODO: Dynamic active pill and screen reader elements-->
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/features">Features</a></li>
+      <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+    </ul>
+    <!--Login form-->
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="loginUsername" class="sr-only">Username</label>
+        <input class="form-control mr-2" id="loginUsername" type="text" placeholder="Username">
+      </div>
+      <div class="form-group">
+        <label form="loginPassword" class="sr-only">Password</label>
+        <input class="form-control mr-2" id="loginPassword" type="password" placeholder="Password">
+      </div>
+      <button class="btn btn-primary btn-main-nav ml-3">Login</button>
+    </form>
+  </nav>
+</nav>

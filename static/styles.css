@@ -25,3 +25,26 @@
 body {
     overflow-y: hidden;
 }
+
+.hide {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.registration-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 450px;
+    background-color: #ebebeb;
+}
+
+.alert-success {
+    width: 300px;
+}
