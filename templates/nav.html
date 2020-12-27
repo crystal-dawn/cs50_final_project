@@ -1,25 +1,36 @@
-{% block nav %}
-<nav class="navbar navbar-expand-md primary">
-  <a href="/register">
-    <button class="btn btn-primary btn-main-nav mb-2" type="button" data-toggle="modal" data-target="#registerModal">Register</button>
-  </a>
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
+<nav class="navbar navbar-expand-lg navbar-light primary">
+  <!--Hamburger menu for mobile & tablet-->
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#layoutNavContent"
+          aria-controls="layoutNavContent"
+          aria-expanded="false"
+          aria-label="Toggle layout navigation"
+          >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--Wrap nav to collapse on small screens-->
+  <nav class="collapse navbar-collapse nav-justified" id="layoutNavContent">
+    <!--List items to form dropdown-->
+    <ul class="nav navbar-nav mr-auto">
+        <!--TODO: Dynamic active pill and screen reader elements-->
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/features">Features</a></li>
+      <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
     </ul>
+    <!--Login form-->
     <form class="form-inline">
-      <div class="form-group mx-sm-3 mb-2">
-        <label for="username" class="sr-only">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="Username">
+      <div class="form-group">
+        <label for="loginUsername" class="sr-only">Username</label>
+        <input class="form-control mr-2" id="loginUsername" type="text" placeholder="Username">
       </div>
-      <div class="form-group mx-sm-3 mb-2">
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+      <div class="form-group">
+        <label form="loginPassword" class="sr-only">Password</label>
+        <input class="form-control mr-2" id="loginPassword" type="password" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-primary btn-main-nav mb-2">Login</button>
+      <button class="btn btn-primary btn-main-nav ml-3">Login</button>
     </form>
-  </div>
+  </nav>
 </nav>
-{% endblock %}

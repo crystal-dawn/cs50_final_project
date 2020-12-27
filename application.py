@@ -82,9 +82,6 @@ def validate_password():
     password = request.form.get("choosePassword")
     password_confirmed = request.form.get("retypePassword") == password
 
-    app.logger.info("password: %s", password)
-    app.logger.info("confirmation: %s", password_confirmed)
-
     if not password:
         return "Choose an eight character password"
     return None
