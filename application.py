@@ -59,6 +59,17 @@ def register():
             flash('Registration succesesful, please login', 'message')
             return redirect("/")
 
+    return render_template("register.html")
+
+
+# Add user to database
+def register_user(valid_username, valid_password):
+    hash = generate_password_hash(valid_password)
+
+    db.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)", username=valid_username, hash=hash)
+
+    return 'Registration successful, please login'
+
 
 # Validate username
 def validate_username():
