@@ -45,6 +45,12 @@ body {
     background-color: #ebebeb;
 }
 
-.alert-success {
-    width: 300px;
+.alert {
+    width: 290px;
+    position: relative;
+    float: right;
+}
+
+.msg-list {
+    padding: 0;
 }
